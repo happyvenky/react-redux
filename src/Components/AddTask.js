@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Addlist from '../Reduceser/Adduser';
+import { useDispatch } from 'react-redux';
 
 export default function AddTask() {
+  const dispatch = useDispatch();
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
   const addTask = (e) => {
     e.preventDefault();
     console.log({ title, description });
+    dispatch(Addlist({ title, description }));
   };
   return (
     <section className="my-4">
